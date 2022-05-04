@@ -17,6 +17,23 @@
   
 </div> 
 
+**约定：**
+
+- `+` 约定单个变量使用
+- `#` 约定多个变量使用
+
+例如
+
+```ts
+const pattern = `/foo/+id/world/#paths`;
+
+const topic = `/foo/1519699178931773441/world/test/channel`;
+
+{
+  id: '1519699178931773441',
+  paths: ['test', 'channel'],
+}
+```
 
 ## 🏗 安装
 
@@ -29,6 +46,38 @@ yarn add @pansy/mqtt-pattern
 
 // pnpm 
 pnpm i @pansy/mqtt-pattern
+```
+
+## API
+
+### fill
+
+```ts
+function fill(pattern: string, params: Record<string, string | string[]>): string;
+```
+
+### exec
+
+```ts
+function exec(pattern: string, topic: string): Record<string, string | string[]> | null;
+```
+
+### matches
+
+```ts
+function matches(pattern: string, topic: string): boolean;
+```
+
+### extract
+
+```ts
+function extract(pattern: string, topic: string): Record<string, string | string[]>;
+```
+
+### clean
+
+```ts
+function clean(pattern: string): string;
 ```
 
 [npm-v-image]: https://img.shields.io/npm/v/@pansy/mqtt-pattern.svg
