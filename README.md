@@ -52,32 +52,90 @@ pnpm i @pansy/mqtt-pattern
 
 ### fill
 
+回填 `pattern` 中的指定变量，获取通道。
+
 ```ts
 function fill(pattern: string, params: Record<string, string | string[]>): string;
 ```
 
+例如：
+
+```ts
+fill('foo/+hello/#world', {
+  hello: 'Hello',
+  world: ['the', 'world', 'wow'],
+});
+
+// 'foo/Hello/the/world/wow'
+```
+
 ### exec
+
+验证并解析通道
 
 ```ts
 function exec(pattern: string, topic: string): Record<string, string | string[]> | null;
 ```
 
+例如：
+
+```ts
+exec('foo/+hello/#world', 'foo/Hello/the/world/wow');
+
+// {
+//   hello: 'Hello',
+//   world: ['the', 'world', 'wow'],
+// }
+```
+
 ### matches
+
+验证通道
 
 ```ts
 function matches(pattern: string, topic: string): boolean;
 ```
 
+
+```ts
+matches('foo/+hello/#world', 'foo/Hello/the/world/wow');
+
+// true
+```
+
 ### extract
+
+解析通道
 
 ```ts
 function extract(pattern: string, topic: string): Record<string, string | string[]>;
 ```
 
+例如：
+
+```ts
+extract('foo/+hello/#world', 'foo/Hello/the/world/wow');
+
+// {
+//   hello: 'Hello',
+//   world: ['the', 'world', 'wow'],
+// }
+```
+
 ### clean
+
+清除变量中的名称
 
 ```ts
 function clean(pattern: string): string;
+```
+
+例如：
+
+```ts
+exec('foo/+hello/#world');
+
+// 'foo/+/#'
 ```
 
 [npm-v-image]: https://img.shields.io/npm/v/@pansy/mqtt-pattern.svg
