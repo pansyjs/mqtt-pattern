@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    "rootDirs": ["src"],
+    "target": "ES6",
+    "moduleResolution": "node",
+    "allowJs": true,
+    "declaration": false,
+    "esModuleInterop": true,
+    "importHelpers": true,
+    "downlevelIteration": true,
+    "sourceMap": true,
+    "baseUrl": "./",
+    "typeRoots": ["./src/typings", "./node_modules/@types"],
+    "lib": ["ES2015", "DOM"],
+    "allowSyntheticDefaultImports": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "noImplicitAny": true,
+    "resolveJsonModule": true
+  },
+  "include": ["src"],
+  "exclude": ["node_modules", "lib", "es", "dist"]
+}

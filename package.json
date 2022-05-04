@@ -1,0 +1,37 @@
+{
+  "name": "@pansy/mqtt-pattern",
+  "version": "0.1.0",
+  "description": "Fast library for matching MQTT patterns with named wildcards",
+  "main": "dist/index.js",
+  "module": "dist/esm/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "test": "walrus-test",
+    "release": "walrus release"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pansyjs/mqtt-pattern.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/pansyjs/mqtt-pattern/issues"
+  },
+  "homepage": "https://github.com/pansyjs/mqtt-pattern#readme",
+  "devDependencies": {
+    "@walrus/cli": "^1.3.4",
+    "@walrus/plugin-release": "^1.14.3",
+    "@walrus/test": "^1.3.0",
+    "tsup": "^5.12.6",
+    "typescript": "^4.6.4"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org",
+    "access": "public"
+  }
+}
